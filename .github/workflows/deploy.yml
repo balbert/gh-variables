@@ -13,7 +13,7 @@ jobs:
       MONGODB_CLUSTER_ADDRESS: cluster0.vbouq.mongodb.net
       MONGODB_USERNAME: user
       MONGODB_PASSWORD: oicu8b4me
-      MONGODB_PORT: 8080
+      PORT: 8080
     #environment: testing
     runs-on: ubuntu-latest
     steps:
@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run server
-        run: npm start & npx wait-on http://127.0.0.1:$MONGODB_PORT
+        run: npm start & npx wait-on http://127.0.0.1:$PORT
       - name: Run tests
         run: npm test
       - name: Output information
