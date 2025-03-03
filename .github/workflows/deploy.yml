@@ -11,8 +11,8 @@ jobs:
   test:
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.vbouq.mongodb.net
-      MONGODB_USERNAME: user
-      MONGODB_PASSWORD: oicu8b4me
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     #environment: testing
     runs-on: ubuntu-latest
@@ -39,5 +39,5 @@ jobs:
     steps:
       - name: Output information
         run: |        
-          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
+          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}" # not in scope
           echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
